@@ -20,6 +20,9 @@ push: build
 run: build
 	docker run --rm -it $(call GET_META_FIELD,image):$(call GET_META_FIELD,version) ${CMD}
 
+run_root: build
+	docker run --rm -it -u root $(call GET_META_FIELD,image):$(call GET_META_FIELD,version) ${CMD}
+
 clean:
 
 .PHONY: build tag push run clean
